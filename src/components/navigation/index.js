@@ -35,9 +35,10 @@ const Navigation = () => {
         {petTypes
           ? petTypes.map((type) => (
               <li key={type.name}>
-                <NavLink to={`/${type._links.self.href.split('/').pop()}`}
-                  key={type.name}
-                  className='nav-link'               >
+                <NavLink 
+                  className={ ({isActive}) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
+                to={`/${type._links.self.href.split('/').pop()}`}
+                  key={type.name} >
                   {type.name}s
                 </NavLink>{' '}
               </li>
